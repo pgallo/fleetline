@@ -1,0 +1,25 @@
+# Build output
+build/
+_skbuild/
+dist/
+*.egg-info/
+*.so
+*.pyd
+*.o
+*.a
+compile_commands.json
+CMakeCache.txt
+CMakeFiles/
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Editors
+.vscode/
+.idea/
+*.swp

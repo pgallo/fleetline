@@ -1,0 +1,33 @@
+[build-system]
+requires = ["scikit-build-core>=0.10", "pybind11>=2.12"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "fleetline"
+version = "0.1.0"
+description = "Fleet telematics lab: C++17 stream-processing core with a Python service and analytics layer"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Paolo Gallo" }]
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.110",
+    "pandas>=2.1",
+    "pydantic>=2.5",
+    "uvicorn>=0.27",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "httpx>=0.27"]
+
+[tool.scikit-build]
+minimum-version = "0.10"
+cmake.version = ">=3.20"
+cmake.build-type = "Release"
+wheel.packages = ["fleetline"]
+sdist.exclude = ["build", ".venv"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore:Using `httpx` with `starlette.testclient`"]
